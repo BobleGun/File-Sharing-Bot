@@ -10,7 +10,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
         await query.message.edit_text(
-            text = f"<b>○ Telegram channel: @tg_inc_softw /n○ Support: @tg_inc_admin",
+            text = f"<b>○ Telegram канал: @tg_inc_softw \n○ Поддержка: @tg_inc_admin",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
