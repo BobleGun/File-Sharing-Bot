@@ -58,11 +58,11 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply("Пожалуйста подождите...")
         try:
             messages = await get_messages(client, ids)
         except:
-            await message.reply_text("Something went wrong..!")
+            await message.reply_text("Что-то пошло не так..!")
             return
         await temp_msg.delete()
 
@@ -115,7 +115,7 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
-                "Join Channel",
+                "Присоединиться к каналу",
                 url = client.invitelink)
         ]
     ]
@@ -123,7 +123,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = 'Попробуйте еще раз',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
@@ -161,7 +161,7 @@ async def send_text(client: Bot, message: Message):
         deleted = 0
         unsuccessful = 0
         
-        pls_wait = await message.reply("<i>Broadcasting Message.. This will Take Some Time</i>")
+        pls_wait = await message.reply("<i>Передача сообщения.. Это займет некоторое время</i>")
         for row in query:
             chat_id = int(row[0])
             try:
@@ -180,7 +180,7 @@ async def send_text(client: Bot, message: Message):
                 pass
             total += 1
         
-        status = f"""<b><u>Broadcast Completed</u>
+        status = f"""<b><u>Трансляция завершена</u>
 
 Total Users: <code>{total}</code>
 Successful: <code>{successful}</code>
